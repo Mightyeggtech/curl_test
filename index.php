@@ -12,8 +12,8 @@ $json = '    {"employees":[
 //var_dump(json_decode($json));
 $string = http_build_query(json_decode($json));
 
-//$ch = curl_init("https://infinite-dawn-72254.herokuapp.com/data.php");
-$ch = curl_init("http://localhost/testForQB/data.php");
+$ch = curl_init("https://infinite-dawn-72254.herokuapp.com/data.php");
+//$ch = curl_init("http://localhost/testForQB/data.php");
 curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $string);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

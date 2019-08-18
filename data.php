@@ -7,11 +7,11 @@
 
 
 
-if(isset($_POST['name'], $_POST['age']) ){
+if(isset($_POST['a'], $_POST['b']) ){
 
     echo "i am working from heroku\n";
 
-    echo json_encode($_POST);
+    
 
     // echo $_POST['name']."\n";
     // echo $_POST['age']."\n";

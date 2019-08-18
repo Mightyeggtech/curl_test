@@ -1,6 +1,6 @@
 <?php 
 
-$data = array("name"=>"METech", "age"=>"5");
+$data = array("name"=>"rifat", "age"=>"50");
 $string = http_build_query($data);
 
 $ch = curl_init("https://infinite-dawn-72254.herokuapp.com/data.php");

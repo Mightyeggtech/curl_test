@@ -8,9 +8,13 @@
 
 
 if(isset($_POST['name'], $_POST['age']) ){
+
     echo "i am working from heroku\n";
-    echo $_POST['name']."\n";
-    echo $_POST['age']."\n";
+
+    echo json_encode($_POST);
+
+    // echo $_POST['name']."\n";
+    // echo $_POST['age']."\n";
 
     //echo "WORKING";
     // Create connection

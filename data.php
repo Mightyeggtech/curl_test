@@ -10,6 +10,7 @@
 if(isset($_POST['a'], $_POST['b']) ){
 
     echo "i am working from heroku\n";
+    echo $_POST['e'];
 
     
 

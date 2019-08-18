@@ -5,9 +5,13 @@
 // $password = "";
 // $dbName = "qb";
 
-echo "I am Data";
 
-//if(isset($_POST['name'], $_POST['age']) ){
+
+if(isset($_POST['name'], $_POST['age']) ){
+    echo "i am working from heroku\n";
+    echo $_POST['name']."\n";
+    echo $_POST['age']."\n";
+
     //echo "WORKING";
     // Create connection
     // $db = new mysqli($servername, $username, $password, $dbName);
@@ -23,6 +27,6 @@ echo "I am Data";
     // } else {
     //     echo "Error: " . $sql . "<br>" . $db->error;
     // }
-//}
+}
 
 ?>

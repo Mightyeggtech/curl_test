@@ -5,12 +5,14 @@
 // $password = "";
 // $dbName = "qb";
 
+echo "i am here\n";
 
+var_dump($_POST);
 
 if(isset($_POST['a'], $_POST['b']) ){
 
     echo "i am working from heroku\n";
-    echo $_POST['e'];
+    echo  $_POST['e'];
 
     
 

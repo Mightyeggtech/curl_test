@@ -5,9 +5,7 @@
 // $password = "";
 // $dbName = "qb";
 
-echo "i am here\n";
-
-var_dump($_POST);
+echo json_encode($_POST);
 
 if(isset($_POST['a'], $_POST['b']) ){
 

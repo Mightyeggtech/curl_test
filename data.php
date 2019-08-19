@@ -15,21 +15,21 @@ $obj = json_decode($x);
 
 $_POST['order'] = "HELLO";
 
-if(isset($_POST['order'])){
-    $print_output= $_POST['order'];
-    try
-    {
-        $fp=pfsockopen("192.168.0.147", 9100);
-        fputs($fp, $print_output);
-        fclose($fp);
+// if(isset($_POST['order'])){
+//     $print_output= $_POST['order'];
+//     try
+//     {
+//         $fp=pfsockopen("192.168.0.147", 9100);
+//         fputs($fp, $print_output);
+//         fclose($fp);
     
-        echo 'Successfully Printed';
-    }
-    catch (Exception $e) 
-    {
-        echo 'Caught exception: ',  $e->getMessage(), "\n";
-    }
-}
+//         echo 'Successfully Printed';
+//     }
+//     catch (Exception $e) 
+//     {
+//         echo 'Caught exception: ',  $e->getMessage(), "\n";
+//     }
+// }
 
 
 // require("fpdf/fpdf.php");

@@ -5,16 +5,50 @@
 // $password = "";
 // $dbName = "qb";
 
-echo "i am working from heroku\n";
+//echo "i am working from heroku\n";
 
-echo json_encode($_POST);
+$x = json_encode($_POST);
+//echo $x;
 
-if(isset($_POST['a'], $_POST['b']) ){
+$obj = json_decode($x);
+//print $obj->{'name'};
 
-    echo "i am working from heroku\n";
-    echo  $_POST['e'];
+$_POST['order'] = "HELLO";
 
+if(isset($_POST['order'])){
+    $print_output= $_POST['order'];
+    try
+    {
+        $fp=pfsockopen("192.168.0.147", 9100);
+        fputs($fp, $print_output);
+        fclose($fp);
     
+        echo 'Successfully Printed';
+    }
+    catch (Exception $e) 
+    {
+        echo 'Caught exception: ',  $e->getMessage(), "\n";
+    }
+}
+
+
+// require("fpdf/fpdf.php");
+
+// class myPDF extends FPDF{
+
+// }
+
+// $pdf = new FPDF();
+// $pdf->AddPage();
+// $pdf->SetFont('Arial','B',16);
+// $pdf->Cell(40,10,'Hello World!');
+// $pdf->Output();
+
+
+//if(isset($_POST['a'], $_POST['b']) ){
+
+  //  echo "i am working from heroku\n";
+   // echo  $_POST['e'];
 
     // echo $_POST['name']."\n";
     // echo $_POST['age']."\n";
@@ -34,6 +68,6 @@ if(isset($_POST['a'], $_POST['b']) ){
     // } else {
     //     echo "Error: " . $sql . "<br>" . $db->error;
     // }
-}
+//}
 
 ?>

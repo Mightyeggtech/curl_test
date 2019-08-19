@@ -17,7 +17,7 @@ $_POST['order'] = "HELLO";
 
 if(isset($_POST['order'])){
     $print_output= $_POST['order'];
-    ehco $print_output;
+    echo $print_output;
     // try
     // {
     //     $fp=pfsockopen("192.168.0.147", 9100);

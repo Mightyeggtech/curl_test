@@ -17,19 +17,18 @@ $_POST['order'] = "HELLO";
 
 if(isset($_POST['order'])){
     $print_output= $_POST['order'];
-    echo $print_output;
-    // try
-    // {
-    //     $fp=pfsockopen("192.168.0.147", 9100);
-    //     fputs($fp, $print_output);
-    //     fclose($fp);
+    try
+    {
+        $fp=pfsockopen("192.168.0.147", 9100);
+        fputs($fp, $print_output);
+        fclose($fp);
     
-    //     echo 'Successfully Printed';
-    // }
-    // catch (Exception $e) 
-    // {
-    //     echo 'Caught exception: ',  $e->getMessage(), "\n";
-    // }
+        echo 'Successfully Printed';
+    }
+    catch (Exception $e) 
+    {
+        echo 'Caught exception: ',  $e->getMessage(), "\n";
+    }
 }
 
 

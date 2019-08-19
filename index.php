@@ -1,39 +1,35 @@
 <?php 
 
-$data = array("name"=>"abc", "age"=>"20");
+//Test Data
+$data = array("name"=>"MET", "age"=>"10");
 $string = http_build_query($data);
 
 //The JSON data.
 $myObj = new stdClass(); 
-$myObj->name = "Geeks"; 
-$myObj->college="NIT"; 
-$myObj->gender = "Male"; 
-$myObj->age = 30; 
+$myObj->messageHeader = "Print The Message"; 
+$myObj->messageBody="Hello there, This is an encoded message to print on a zebra printer";
+$myObj->barCode="^xa^cfa,50^fo100,100^fdHello World^fs^xz";
    
 $jsonDataEncoded = $myObj; 
  
 //Encode the array into JSON.
 //$jsonDataEncoded = json_encode($myJSON);
 
-//var_dump(json_decode($json));
-//$string = http_build_query(json_decode($json));
+//url to hit with JSON Data
+//$url = "https://infinite-dawn-72254.herokuapp.com/data.php";
+$url = "http://localhost/testForQB/demoData.php";
 
-$ch = curl_init("https://infinite-dawn-72254.herokuapp.com/data.php");
-//$ch = curl_init("http://localhost/testForQB/data.php");
-curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonDataEncoded);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-$content = curl_exec($ch);
-curl_close($ch);
-echo $content;
-// //echo $ch;
-//echo "Index";
+$cURL = curl_init($url);
+curl_setopt($cURL, CURLOPT_POST, true);
+curl_setopt($cURL, CURLOPT_POSTFIELDS, $jsonDataEncoded);
+curl_setopt($cURL, CURLOPT_RETURNTRANSFER, true);
+//curl_setopt($cURL, CURLOPT_HTTPHEADER, array("Accept: application/pdf"));
+$response = curl_exec($cURL);
 
-// header('Cache-Control: public'); 
-// header('Content-type: application/pdf');
-// header('Content-Disposition: attachment; filename="new.pdf"');
-// header('Content-Length: '.strlen($content));
-// echo $content;
+//response
+echo $response;
 
+
+curl_close($cURL);
 
 ?>

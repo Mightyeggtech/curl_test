@@ -7,8 +7,7 @@ $string = http_build_query($data);
 //The JSON data.
 $myObj = new stdClass(); 
 $myObj->messageHeader = "Print The Message"; 
-$myObj->messageBody="Hello there, This is an encoded message to print on a zebra printer";
-$myObj->barCode="^xa^cfa,50^fo100,100^fdHello World^fs^xz";
+$myObj->messageBody="^xa^cfa,50^fo100,100^fdHello World^fs^xz";
    
 $jsonDataEncoded = $myObj; 
  
@@ -28,7 +27,6 @@ $response = curl_exec($cURL);
 
 //response
 echo $response;
-
 
 curl_close($cURL);
 

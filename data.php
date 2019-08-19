@@ -5,7 +5,7 @@
 // $password = "";
 // $dbName = "qb";
 
-//echo "i am working from heroku\n";
+echo "i am working from heroku\n";
 
 $x = json_encode($_POST);
 //echo $x;

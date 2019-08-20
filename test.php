@@ -15,6 +15,8 @@ $result = curl_exec($curl);
 
 if (curl_getinfo($curl, CURLINFO_HTTP_CODE) == 200) {
 
+    echo $result;
+
     // require("fpdf/fpdf.php");
 
     // $pdf = new FPDF();

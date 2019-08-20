@@ -1,33 +1,49 @@
 <?php 
 
-//Test Data
-$data = array("name"=>"MET", "age"=>"10");
-$string = http_build_query($data);
+var_dump($_POST);
+die();
 
-//The JSON data.
-$myObj = new stdClass(); 
-$myObj->messageHeader = "Print The Message"; 
-$myObj->messageBody="^xa^cfa,50^fo100,100^fdHello World^fs^xz";
-   
-$jsonDataEncoded = $myObj; 
- 
-//Encode the array into JSON.
-//$jsonDataEncoded = json_encode($myJSON);
+function printData($html) {
+    $ip = "192.168.0.147";
+    $port = 80;
+    try{
+        $fp =pfsockopen($ip, $port);
+        fputs($fp , $html);
+        fclose($fp);
+            
+        echo 'Successfully Printed';
+    }
+    catch (Exception $e) {
+        echo 'Caught exception: ',  $e->getMessage(), "\n";
+    }
+}
 
-//url to hit with JSON Data
-//$url = "https://infinite-dawn-72254.herokuapp.com/data.php";
-$url = "http://localhost/testForQB/demoData.php";
+function createHTML($printOutput) {
+    $html = '
+	<table border="1" cellspacing="0" cellpadding="0" style="width:500px;">
+		<tr>
+			<th>Message Header</th>
+			<th>Body</th>
+		</tr>
 
-$cURL = curl_init($url);
-curl_setopt($cURL, CURLOPT_POST, true);
-curl_setopt($cURL, CURLOPT_POSTFIELDS, $jsonDataEncoded);
-curl_setopt($cURL, CURLOPT_RETURNTRANSFER, true);
-//curl_setopt($cURL, CURLOPT_HTTPHEADER, array("Accept: application/pdf"));
-$response = curl_exec($cURL);
+        <tr>';
+			$html .= '<tr>
+				 <td><center>'.$printOutput['messageHeader'].'</center></td>
+				 <td><center>'.$printOutput['messageBody'].'</center></td>
+                </tr>';
+            $html .= '
+		</tr>
+	</table>
+    ';	
+    
+    echo $html;
 
-//response
-echo $response;
+    return $html;
+}
 
-curl_close($cURL);
+$printOutput= $_POST;
+
+$html = createHTML($printOutput);
+printData($html);
 
 ?>

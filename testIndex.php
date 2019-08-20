@@ -17,7 +17,7 @@ $jsonDataEncoded = $myObj;
 
 //url to hit with JSON Data
 //$url = "https://infinite-dawn-72254.herokuapp.com/data.php";
-$url = "http://localhost/testForQB/demoData.php";
+$url = "http://localhost/testForQB/index.php";
 
 $cURL = curl_init($url);
 curl_setopt($cURL, CURLOPT_POST, true);

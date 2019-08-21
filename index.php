@@ -27,6 +27,21 @@ function createHTML($xmlArr) {
     return $html;
 }
 
+function printData($html) {
+    $ip = "192.168.0.147";
+    $port = 80;
+    try{
+        $fp =pfsockopen($ip, $port);
+        fputs($fp , $html);
+        fclose($fp);
+            
+        echo 'Successfully Printed';
+    }
+    catch (Exception $e) {
+        echo 'Caught exception: ',  $e->getMessage(), "\n";
+    }
+}
+
 //The JSON data.
 // $myObj = new stdClass(); 
 // $myObj->messageHeader = "Print The Message"; 
@@ -82,6 +97,7 @@ if (curl_getinfo($cURL, CURLINFO_HTTP_CODE) == 200) {
     //print_r($xmlArr['record'][0]);
 
     $html = createHTML($xmlArr);
+    //printData($html);
 
 }
 

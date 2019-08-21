@@ -2,20 +2,16 @@
 
 function createHTML($xmlArr) {
     $html = '
-	<table border="1" cellspacing="0" cellpadding="0" style="width:500px;">
-		<tr>
-            <th>ID</th>
-            <th>Label</th>
-		</tr>
-
+	<table border="0" cellspacing="0" cellpadding="0" style="width:500px;">
+	
         <tr>';
             $cnt =  count($xmlArr['record']);
             //print_r($xmlArr['record']);
             //echo "CNT = ".$cnt;
             for($i = 0; $i < $cnt; $i++){
 			$html .= '<tr>
-                 <td><center>'.$xmlArr['record']['id'].'</center></td>
                  <td><center>'.$xmlArr['record']['label'].'</center></td>
+                 <br>
                   </tr>';
             }
             $html .= '

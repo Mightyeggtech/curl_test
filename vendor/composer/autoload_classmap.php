@@ -12,4 +12,10 @@ return array(
     'HTML5_Parser' => $vendorDir . '/dompdf/dompdf/lib/html5lib/Parser.php',
     'HTML5_Tokenizer' => $vendorDir . '/dompdf/dompdf/lib/html5lib/Tokenizer.php',
     'HTML5_TreeBuilder' => $vendorDir . '/dompdf/dompdf/lib/html5lib/TreeBuilder.php',
+    'QuickBase\\QuickBase' => $vendorDir . '/tflanagan/quickbase/quickbase.php',
+    'QuickBase\\QuickBaseError' => $vendorDir . '/tflanagan/quickbase/quickbase.php',
+    'QuickBase\\QuickBaseOption' => $vendorDir . '/tflanagan/quickbase/quickbase.php',
+    'QuickBase\\QuickBaseQuery' => $vendorDir . '/tflanagan/quickbase/quickbase.php',
+    'QuickBase\\QuickBaseRequest' => $vendorDir . '/tflanagan/quickbase/quickbase.php',
+    'QuickBase\\QuickBaseResponse' => $vendorDir . '/tflanagan/quickbase/quickbase.php',
 );

@@ -1,0 +1,33 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"name": "tflanagan/quickbase",
+	"type": "library",
+	"description": "A lightweight, very flexible QuickBase API",
+	"keywords": [
+		"QuickBase",
+		"quickbase",
+		"qb",
+		"api"
+	],
+	"homepage": "https://github.com/tflanagan/php-quickbase",
+	"support": {
+		"issues": "https://github.com/tflanagan/php-quickbase/issues"
+	},
+	"license": "Apache-2.0",
+	"authors": [
+		{
+			"name": "Tristian Flanagan",
+			"email": "contact@tristianflanagan.com",
+			"homepage": "https://github.com/tflanagan",
+			"role": "Developer"
+		}
+	],
+	"autoload": {
+		"classmap": [ "quickbase.php" ]
+	},
+	"require": {
+		"php": ">=5.4.0",
+		"ext-curl": "*",
+		"ext-xml": "*"
+	}
+}

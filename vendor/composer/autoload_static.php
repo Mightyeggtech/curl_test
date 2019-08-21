@@ -49,6 +49,12 @@ class ComposerStaticInitb4e48d3848a7be1b97c852d7a15909f0
         'HTML5_Parser' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/Parser.php',
         'HTML5_Tokenizer' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/Tokenizer.php',
         'HTML5_TreeBuilder' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/TreeBuilder.php',
+        'QuickBase\\QuickBase' => __DIR__ . '/..' . '/tflanagan/quickbase/quickbase.php',
+        'QuickBase\\QuickBaseError' => __DIR__ . '/..' . '/tflanagan/quickbase/quickbase.php',
+        'QuickBase\\QuickBaseOption' => __DIR__ . '/..' . '/tflanagan/quickbase/quickbase.php',
+        'QuickBase\\QuickBaseQuery' => __DIR__ . '/..' . '/tflanagan/quickbase/quickbase.php',
+        'QuickBase\\QuickBaseRequest' => __DIR__ . '/..' . '/tflanagan/quickbase/quickbase.php',
+        'QuickBase\\QuickBaseResponse' => __DIR__ . '/..' . '/tflanagan/quickbase/quickbase.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

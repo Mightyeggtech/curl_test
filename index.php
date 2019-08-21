@@ -34,7 +34,6 @@ function createHTML($xmlArr) {
 // $myObj->rids="546061,546062,546063";
    
 // $jsonDataEncoded = $myObj; 
-
 //Encode the array into JSON.
 //$jsonDataEncoded = json_encode($myJSON);
 

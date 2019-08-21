@@ -58,8 +58,6 @@ foreach($explodedData as $rids){
 //die();
 //making query E
 
-
-//$q = "{'15'.EX.'IT'}OR{'15'.EX.'Support'}OR{'15'.EX.'Sales'}";
 $url = "https://builderprogram-meff.quickbase.com/db/bptu26yq5?a=API_DoQuery&query=(".$queryString.")&clist=11.15.5&usertoken=b4ttby_na3y_dcazzchdsqxs4pc22uifhc6v34b2";
 
 $cURL = curl_init($url);

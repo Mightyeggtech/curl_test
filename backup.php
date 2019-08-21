@@ -4,18 +4,16 @@ function createHTML($xmlArr) {
     $html = '
 	<table border="1" cellspacing="0" cellpadding="0" style="width:500px;">
 		<tr>
-            <th>ID</th>
-            <th>Label</th>
+            <th>Name</th>
+            <th>Type</th>
 		</tr>
 
         <tr>';
             $cnt =  count($xmlArr['record']);
-            //print_r($xmlArr['record']);
-            //echo "CNT = ".$cnt;
             for($i = 0; $i < $cnt; $i++){
 			$html .= '<tr>
-                 <td><center>'.$xmlArr['record']['id'].'</center></td>
-                 <td><center>'.$xmlArr['record']['label'].'</center></td>
+                 <td><center>'.$xmlArr['record'][$i]['full_name'].'</center></td>
+                 <td><center>'.$xmlArr['record'][$i]['type'].'</center></td>
                   </tr>';
             }
             $html .= '
@@ -74,9 +72,8 @@ foreach($explodedData as $rids){
 //echo $queryString;
 //die();
 //making query E
-$queryString = "{'6'.EX.'43696-37'}";
 
-$url = "https://ss.quickbase.com/db/bprrh3cv9?a=API_DoQuery&query=(".$queryString.")&clist=6.43&usertoken=b3jy7r_mpaj_bnntwqddvusut3bdhsfwwdb2vzx2";
+$url = "https://builderprogram-meff.quickbase.com/db/bptu26yq5?a=API_DoQuery&query=(".$queryString.")&clist=11.15.5&usertoken=b4ttby_na3y_dcazzchdsqxs4pc22uifhc6v34b2";
 
 $cURL = curl_init($url);
 curl_setopt($cURL, CURLOPT_POST, true);
@@ -88,7 +85,6 @@ $response = curl_exec($cURL);
 if (curl_getinfo($cURL, CURLINFO_HTTP_CODE) == 200) {
     //response
     //echo $response;
-    //die();
 
     //convert xml string into an object
     $xml = simplexml_load_string($response);
@@ -98,7 +94,7 @@ if (curl_getinfo($cURL, CURLINFO_HTTP_CODE) == 200) {
 
     //convert into associative array
     $xmlArr = json_decode($json, true);
-    //print_r($xmlArr['record']);
+    //print_r($xmlArr['record'][0]);
 
     $html = createHTML($xmlArr);
     //printData($html);

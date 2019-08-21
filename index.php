@@ -10,7 +10,7 @@ function createHTML($xmlArr) {
             //echo "CNT = ".$cnt;
             for($i = 0; $i < $cnt; $i++){
 			$html .= '<tr>
-                 <td><center>'.$xmlArr['record']['label'].'</center></td>
+                 <td><center>'.$xmlArr['record'][$i]['label'].'</center></td>
                  <br>
                   </tr>';
             }
@@ -54,7 +54,7 @@ function printData($html) {
 //$url = "https://infinite-dawn-72254.herokuapp.com/data.php";
 
 //making query S
-$_POST['rids'] = "IT,Support,Billing";
+$_POST['rids'] = "546061,546062,546063";
 $string = $_POST['rids'];
 $explodedData = explode(",",$string);
 // print_r($explodedData);
@@ -62,7 +62,7 @@ $queryString = '';
 $countData = count($explodedData);
 $counter = 0;
 foreach($explodedData as $rids){
-    $queryString .= "{'15'.EX.'$rids'}";
+    $queryString .= "{'3'.EX.'$rids'}";
     if($counter > 0 || $counter < $countData-1)
     $queryString .='OR';
     $counter++;
@@ -70,7 +70,6 @@ foreach($explodedData as $rids){
 //echo $queryString;
 //die();
 //making query E
-$queryString = "{'6'.EX.'43696-37'}";
 
 $url = "https://ss.quickbase.com/db/bprrh3cv9?a=API_DoQuery&query=(".$queryString.")&clist=6.43&usertoken=b3jy7r_mpaj_bnntwqddvusut3bdhsfwwdb2vzx2";
 

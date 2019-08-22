@@ -7,6 +7,10 @@ namespace Composer\Autoload;
 class ComposerStaticInitb4e48d3848a7be1b97c852d7a15909f0
 {
     public static $prefixLengthsPsr4 = array (
+        'M' => 
+        array (
+            'Mike42\\' => 7,
+        ),
         'F' => 
         array (
             'FontLib\\' => 8,
@@ -18,6 +22,10 @@ class ComposerStaticInitb4e48d3848a7be1b97c852d7a15909f0
     );
 
     public static $prefixDirsPsr4 = array (
+        'Mike42\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mike42/escpos-php/src/Mike42',
+        ),
         'FontLib\\' => 
         array (
             0 => __DIR__ . '/..' . '/phenx/php-font-lib/src/FontLib',

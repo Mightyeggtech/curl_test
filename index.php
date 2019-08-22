@@ -1,5 +1,11 @@
 <?php 
 
+require __DIR__ . '/vendor/autoload.php';
+require_once 'dompdf/autoload.inc.php'; 
+use Dompdf\Dompdf; 
+use Mike42\Escpos\PrintConnectors\NetworkPrintConnector;
+use Mike42\Escpos\Printer;
+
 function createHTML($xmlArr) {
     $html = '
 	<table align="center" border="0" cellspacing="0" cellpadding="0" style="width:300px;">
@@ -9,7 +15,7 @@ function createHTML($xmlArr) {
             //print_r($xmlArr['record']);
             //echo "CNT = ".$cnt;
             for($i = 0; $i < $cnt; $i++){
-			$html .= '<tr>
+			$html .= '<tr style="padding-top: 50px;padding-bottom: 50px;">
                  <td><center>'.$xmlArr['record'][$i]['label'].'</center></td>
                  <br>
                   </tr>';
@@ -26,18 +32,44 @@ function createHTML($xmlArr) {
 }
 
 function printData($html) {
-    $ip = "192.168.0.147";
-    $port = '';
+    // $connector = new NetworkPrintConnector("192.168.0.106", 9100);
+    // $printer = new Printer($connector);
+    // try {
+    //     $printer -> text($html);
+    //     //$printer -> graphics($html);
+    //     $printer -> cut();
+    // } finally {
+    //     $printer -> close();
+    // }
+    $ip = "192.168.0.106";
+    $port = 9100;
     try{
-        $fp =pfsockopen($ip, $port);
-        fputs($fp , $html);
-        fclose($fp);
+        // $fp =pfsockopen($ip, $port);
+        // fputs($fp , $x);
+        // fclose($fp);
             
-        echo 'Successfully Printed';
+       //echo 'Successfully Printed';
     }
     catch (Exception $e) {
         echo 'Caught exception: ',  $e->getMessage(), "\n";
     }
+}
+
+function makePDF($html) {
+    // Instantiate and use the dompdf class 
+    $dompdf = new Dompdf();
+
+    // Load HTML content
+    $dompdf->loadHtml($html); 
+    
+    // (Optional) Setup the paper size and orientation 
+    $dompdf->setPaper('A4', 'landscape'); 
+    
+    // Render the HTML as PDF 
+    $dompdf->render(); 
+    
+    // Output the generated PDF to Browser 
+    $dompdf->stream();
 }
 
 //making query S
@@ -83,9 +115,11 @@ if (curl_getinfo($cURL, CURLINFO_HTTP_CODE) == 200) {
     //print_r($xmlArr['record']);
 
     $html = createHTML($xmlArr);
+    //makePDF($html);
     //printData($html);
 
-}
+
+ }
 
 curl_close($cURL);
 

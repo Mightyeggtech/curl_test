@@ -2,7 +2,7 @@
 
 function createHTML($xmlArr) {
     $html = '
-	<table border="0" cellspacing="0" cellpadding="0" style="width:500px;">
+	<table align="center" border="0" cellspacing="0" cellpadding="0" style="width:300px;">
 	
         <tr>';
             $cnt =  count($xmlArr['record']);
@@ -39,19 +39,6 @@ function printData($html) {
         echo 'Caught exception: ',  $e->getMessage(), "\n";
     }
 }
-
-//The JSON data.
-// $myObj = new stdClass(); 
-// $myObj->messageHeader = "Print The Message"; 
-// $myObj->messageBody="Hello World! This is Message Body";
-// $myObj->rids="546061,546062,546063";
-   
-// $jsonDataEncoded = $myObj; 
-//Encode the array into JSON.
-//$jsonDataEncoded = json_encode($myJSON);
-
-//url to hit with JSON Data
-//$url = "https://infinite-dawn-72254.herokuapp.com/data.php";
 
 //making query S
 $_POST['rids'] = "546061,546062,546063";

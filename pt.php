@@ -1,15 +1,16 @@
-<?php
-    require __DIR__ . '/vendor/autoload.php';
-    use Mike42\Escpos\PrintConnectors\NetworkPrintConnector;
-    use Mike42\Escpos\Printer;
-    $connector = new NetworkPrintConnector("192.168.0.106", 9100);
-    $printer = new Printer($connector);
-    try {
-        $printer -> text("Hello World!\n");
-$printer -> cut();
-    } finally {
-        $printer -> close();
-    }
 
-    
+
+<?php 
+require 'vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
+use Spatie\Browsershot\Browsershot;
+// $br = new Browsershot();
+// $br->setUrl('https://infinite-dawn-72254.herokuapp.com/')->save('example.pdf');
+$br = new Browsershot();
+// $br->setUrl('https://infinite-dawn-72254.herokuapp.com/')
+// ->save('out1.jpg')
+$br->setUrl('https://infinite-dawn-72254.herokuapp.com/')->save('example.pdf');
+
+
 ?>
+

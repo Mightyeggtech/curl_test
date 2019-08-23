@@ -6,10 +6,31 @@ namespace Composer\Autoload;
 
 class ComposerStaticInitb4e48d3848a7be1b97c852d7a15909f0
 {
+    public static $files = array (
+        '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
+        'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
+        '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
+        '72579e7bd17821bb1321b87411366eae' => __DIR__ . '/..' . '/illuminate/support/helpers.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
+        'P' => 
+        array (
+            'Psr\\Http\\Message\\' => 17,
+        ),
         'M' => 
         array (
             'Mike42\\' => 7,
+        ),
+        'I' => 
+        array (
+            'Intervention\\Image\\' => 19,
+            'Illuminate\\Support\\' => 19,
+            'Illuminate\\Contracts\\' => 21,
+        ),
+        'G' => 
+        array (
+            'GuzzleHttp\\Psr7\\' => 16,
         ),
         'F' => 
         array (
@@ -22,9 +43,29 @@ class ComposerStaticInitb4e48d3848a7be1b97c852d7a15909f0
     );
 
     public static $prefixDirsPsr4 = array (
+        'Psr\\Http\\Message\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/http-message/src',
+        ),
         'Mike42\\' => 
         array (
             0 => __DIR__ . '/..' . '/mike42/escpos-php/src/Mike42',
+        ),
+        'Intervention\\Image\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image',
+        ),
+        'Illuminate\\Support\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/illuminate/support',
+        ),
+        'Illuminate\\Contracts\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/illuminate/contracts',
+        ),
+        'GuzzleHttp\\Psr7\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
         ),
         'FontLib\\' => 
         array (
@@ -43,9 +84,20 @@ class ComposerStaticInitb4e48d3848a7be1b97c852d7a15909f0
             array (
                 0 => __DIR__ . '/..' . '/phenx/php-svg-lib/src',
             ),
+            'Spatie\\Browsershot' => 
+            array (
+                0 => __DIR__ . '/..' . '/spatie/browsershot/src',
+            ),
             'Sabberworm\\CSS' => 
             array (
                 0 => __DIR__ . '/..' . '/sabberworm/php-css-parser/lib',
+            ),
+        ),
+        'D' => 
+        array (
+            'Doctrine\\Common\\Inflector\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/doctrine/inflector/lib',
             ),
         ),
     );

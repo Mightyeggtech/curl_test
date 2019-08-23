@@ -2,9 +2,12 @@
 
 require __DIR__ . '/vendor/autoload.php';
 require_once 'dompdf/autoload.inc.php'; 
+require 'vendor/autoload.php';
 use Dompdf\Dompdf; 
 use Mike42\Escpos\PrintConnectors\NetworkPrintConnector;
 use Mike42\Escpos\Printer;
+use Mike42\Escpos\EscposImage;
+use Spatie\Browsershot\Browsershot;
 
 function createHTML($xmlArr) {
     $html = '
@@ -32,23 +35,24 @@ function createHTML($xmlArr) {
 }
 
 function printData($html) {
-    // $connector = new NetworkPrintConnector("192.168.0.106", 9100);
+    // $connector = new NetworkPrintConnector("192.168.0.105", 9100);
     // $printer = new Printer($connector);
     // try {
-    //     $printer -> text($html);
-    //     //$printer -> graphics($html);
+    //     $printer -> text("Hello World!\n");
     //     $printer -> cut();
+    //     echo "SUCCESS";
     // } finally {
     //     $printer -> close();
     // }
-    $ip = "192.168.0.106";
+    $ip = "192.168.0.105";
     $port = 9100;
     try{
+        // $file = 'example.pdf';
         // $fp =pfsockopen($ip, $port);
-        // fputs($fp , $x);
+        // fputs($fp , $file);
         // fclose($fp);
             
-       //echo 'Successfully Printed';
+       echo 'Successfully Printed';
     }
     catch (Exception $e) {
         echo 'Caught exception: ',  $e->getMessage(), "\n";
@@ -69,7 +73,11 @@ function makePDF($html) {
     $dompdf->render(); 
     
     // Output the generated PDF to Browser 
-    $dompdf->stream();
+    $dompdf->stream('document.pdf');
+
+    $file = fopen("tst.pdf", "w"); // change file name for PNG images
+    fwrite($file, $dompdf->render());
+    fclose($file);
 }
 
 //making query S
@@ -116,7 +124,7 @@ if (curl_getinfo($cURL, CURLINFO_HTTP_CODE) == 200) {
 
     $html = createHTML($xmlArr);
     //makePDF($html);
-    //printData($html);
+    printData($html);
 
 
  }

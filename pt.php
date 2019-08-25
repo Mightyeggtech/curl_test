@@ -15,7 +15,7 @@ $br = new Browsershot();
 $_POST['rids'] = "546061,546062,546063";
 $link = 'https://infinite-dawn-72254.herokuapp.com/';
 try{
-    $br->setUrl($link, $_POST)->save('example.jpeg');
+    $br->setUrl($link, $_POST)->save('example.pdf');
 }
 catch (Exception $e) {
     echo $e->getMessage();

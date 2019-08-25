@@ -94,12 +94,10 @@ function makePDF($html) {
 
 //getting data
 //$_POST['rids'] = "546061,546062,546063";
-var_dump($_POST);
-echo "POST DATA";
-die();
+
 
 //making query S
-//$_POST['rids'] = "546061,546062,546063,546064,546065,546066,546067,546068,546069,546070,546071,546072,546073,546074,546075,546076,546077,546078,546079";
+$_POST['rids'] = "546061";
 $string = $_POST['rids'];
 $explodedData = explode(",",$string);
 // print_r($explodedData);

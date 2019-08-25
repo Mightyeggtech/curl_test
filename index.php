@@ -19,9 +19,10 @@ function createHTML($xmlArr) {
             $cnt =  count($xmlArr['record']);
             //print_r($xmlArr['record']);
             //echo "CNT = ".$cnt;
-            for($i = 0; $i < $cnt; $i++){
+            //for($i = 0; $i < $cnt; $i++){
+            for($i = 0; $i < 1; $i++){
 			$html .= '<tr style="padding-top: 50px;padding-bottom: 50px;">
-                 <td><center>'.$xmlArr['record'][$i]['label'].'</center></td>
+                 <td><center>'.$xmlArr['record']['label'].'</center></td>
                   </tr>';
             }
             $html .= '

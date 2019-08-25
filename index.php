@@ -12,6 +12,7 @@ use Mike42\Escpos\ImagickEscposImage;
 
 
 function createHTML($xmlArr) {
+    $html = "";
     $html = '
 	<table align="center" border="0" cellspacing="0" cellpadding="0" style="width:300px;">
 	
@@ -95,57 +96,86 @@ function makePDF($html) {
 
 //getting data
 //$_POST['rids'] = "546061,546062,546063";
+if(isset($_POST['rids'])){
+    $string = $_POST['id'];
+    //echo $string."_";
+    //die();
+    //$explodedData = explode(",",$string);
+    //foreach($explodedData as $rids){
+
+        $queryString = "{'3'.EX.'$string'}";
+        //echo $queryString."---";
+        $url = "https://ss.quickbase.com/db/bprrh3cv9?a=API_DoQuery&query=(".$queryString.")&clist=6.43&usertoken=b3jy7r_mpaj_bnntwqddvusut3bdhsfwwdb2vzx2";
+
+        $cURL = curl_init($url);
+        curl_setopt($cURL, CURLOPT_POST, true);
+        curl_setopt($cURL, CURLOPT_POSTFIELDS, '');
+        curl_setopt($cURL, CURLOPT_RETURNTRANSFER, true);
+        //curl_setopt($cURL, CURLOPT_HTTPHEADER, array("Accept: application/pdf"));
+        $response = curl_exec($cURL);
+        //convert xml string into an object
+        $html = "";
+        if (curl_getinfo($cURL, CURLINFO_HTTP_CODE) == 200) {
+            $xml = simplexml_load_string($response);
+            //convert into json
+            $json  = json_encode($xml);
+            //convert into associative array
+            $xmlArr = json_decode($json, true);
+            $html = createHTML($xmlArr);
+        }
+    //}
+}
 
 
 //making query S
-$_POST['rids'] = "546061";
-$string = $_POST['rids'];
-$explodedData = explode(",",$string);
-// print_r($explodedData);
-$queryString = '';
-$countData = count($explodedData);
-$counter = 0;
-foreach($explodedData as $rids){
-    $queryString .= "{'3'.EX.'$rids'}";
-    if($counter > 0 || $counter < $countData-1)
-    $queryString .='OR';
-    $counter++;
-}
-//echo $queryString;
-//die();
-//making query E
+//$_POST['rids'] = "546061";
+// $string = $_POST['rids'];
+// $explodedData = explode(",",$string);
+// // print_r($explodedData);
+// $queryString = '';
+// $countData = count($explodedData);
+// $counter = 0;
+// foreach($explodedData as $rids){
+//     $queryString .= "{'3'.EX.'$rids'}";
+//     if($counter > 0 || $counter < $countData-1)
+//     $queryString .='OR';
+//     $counter++;
+// }
+// //echo $queryString;
+// //die();
+// //making query E
 
-$url = "https://ss.quickbase.com/db/bprrh3cv9?a=API_DoQuery&query=(".$queryString.")&clist=6.43&usertoken=b3jy7r_mpaj_bnntwqddvusut3bdhsfwwdb2vzx2";
+// $url = "https://ss.quickbase.com/db/bprrh3cv9?a=API_DoQuery&query=(".$queryString.")&clist=6.43&usertoken=b3jy7r_mpaj_bnntwqddvusut3bdhsfwwdb2vzx2";
 
-$cURL = curl_init($url);
-curl_setopt($cURL, CURLOPT_POST, true);
-curl_setopt($cURL, CURLOPT_POSTFIELDS, '');
-curl_setopt($cURL, CURLOPT_RETURNTRANSFER, true);
-//curl_setopt($cURL, CURLOPT_HTTPHEADER, array("Accept: application/pdf"));
-$response = curl_exec($cURL);
+// $cURL = curl_init($url);
+// curl_setopt($cURL, CURLOPT_POST, true);
+// curl_setopt($cURL, CURLOPT_POSTFIELDS, '');
+// curl_setopt($cURL, CURLOPT_RETURNTRANSFER, true);
+// //curl_setopt($cURL, CURLOPT_HTTPHEADER, array("Accept: application/pdf"));
+// $response = curl_exec($cURL);
 
-if (curl_getinfo($cURL, CURLINFO_HTTP_CODE) == 200) {
-    //response
-    //echo $response;
-    //die();
+// if (curl_getinfo($cURL, CURLINFO_HTTP_CODE) == 200) {
+//     //response
+//     //echo $response;
+//     //die();
 
-    //convert xml string into an object
-    $xml = simplexml_load_string($response);
+//     //convert xml string into an object
+//     $xml = simplexml_load_string($response);
 
-    //convert into json
-    $json  = json_encode($xml);
+//     //convert into json
+//     $json  = json_encode($xml);
 
-    //convert into associative array
-    $xmlArr = json_decode($json, true);
-    //print_r($xmlArr['record']);
+//     //convert into associative array
+//     $xmlArr = json_decode($json, true);
+//     //print_r($xmlArr['record']);
 
-    $html = createHTML($xmlArr);
-    //makePDF($html);
-    printData($html);
+//     $html = createHTML($xmlArr);
+//     //makePDF($html);
+//     printData($html);
 
 
- }
+//  }
 
-curl_close($cURL);
+// curl_close($cURL);
 
 ?>

@@ -9,7 +9,7 @@ use Mike42\Escpos\EscposImage;
 use Spatie\Browsershot\Browsershot;
 use Mike42\Escpos\ImagickEscposImage;
 
-$_POST['rids'] = "546061,546062,546063";
+$_POST['rids'] = "546061";
 
     if(isset($_POST['rids'])){
     $string = $_POST['rids'];
@@ -46,9 +46,9 @@ $_POST['rids'] = "546061,546062,546063";
         $connector = new NetworkPrintConnector($ip, 9100);
         $printer = new Printer($connector);
         try {
-            // $img = EscposImage::load("image.png");
-            // $printer -> graphics($img);
-            // $printer -> cut();
+            $img = EscposImage::load("image.png");
+            $printer -> graphics($img);
+            $printer -> cut();
         } finally {
             $printer -> close();
             echo "Printed Successfully";

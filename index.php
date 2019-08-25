@@ -8,6 +8,8 @@ use Mike42\Escpos\PrintConnectors\NetworkPrintConnector;
 use Mike42\Escpos\Printer;
 use Mike42\Escpos\EscposImage;
 use Spatie\Browsershot\Browsershot;
+use Mike42\Escpos\ImagickEscposImage;
+
 
 function createHTML($xmlArr) {
     $html = '
@@ -20,7 +22,6 @@ function createHTML($xmlArr) {
             for($i = 0; $i < $cnt; $i++){
 			$html .= '<tr style="padding-top: 50px;padding-bottom: 50px;">
                  <td><center>'.$xmlArr['record'][$i]['label'].'</center></td>
-                 <br>
                   </tr>';
             }
             $html .= '
@@ -37,22 +38,33 @@ function createHTML($xmlArr) {
 function printData($html) {
     // $connector = new NetworkPrintConnector("192.168.0.105", 9100);
     // $printer = new Printer($connector);
+    // $pages = EscposImage::loadPdf('example.pdf');
+    // $img = new EscposImage($tmpfname);
     // try {
-    //     $printer -> text("Hello World!\n");
+    //     foreach ($pages as $page) {
+    //         $printer -> graphics($page);
+    //         // $printer -> graphics($page, Printer::IMG_DOUBLE_HEIGHT | Printer::IMG_DOUBLE_WIDTH);
+    //     }
+    //     $printer->feed(2);
     //     $printer -> cut();
     //     echo "SUCCESS";
     // } finally {
     //     $printer -> close();
     // }
-    $ip = "192.168.0.105";
+    $ip = "192.168.0.106";
     $port = 9100;
+    $filename='example.pdf';
+    $fhandle=fopen($filename, 'r');
+    $contents = fread($fhandle, filesize($filename));
+    fclose($fhandle);
+    //print_r($contents);
     try{
         // $file = 'example.pdf';
         // $fp =pfsockopen($ip, $port);
-        // fputs($fp , $file);
+        // fputs($fp ,$contents);
         // fclose($fp);
             
-       echo 'Successfully Printed';
+       //echo 'Successfully Printed';
     }
     catch (Exception $e) {
         echo 'Caught exception: ',  $e->getMessage(), "\n";
@@ -81,7 +93,7 @@ function makePDF($html) {
 }
 
 //making query S
-$_POST['rids'] = "546061,546062,546063";
+$_POST['rids'] = "546061,546062,546063,546064,546065,546066,546067,546068,546069,546070";
 $string = $_POST['rids'];
 $explodedData = explode(",",$string);
 // print_r($explodedData);

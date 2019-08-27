@@ -668,6 +668,55 @@
         "description": "A polyfill for getallheaders."
     },
     {
+        "name": "robgridley/zebra",
+        "version": "2.0.1",
+        "version_normalized": "2.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/robgridley/zebra.git",
+            "reference": "c02e740388438f5c8b66e4f66936350bc4b4af37"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/robgridley/zebra/zipball/c02e740388438f5c8b66e4f66936350bc4b4af37",
+            "reference": "c02e740388438f5c8b66e4f66936350bc4b4af37",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=7.1.0"
+        },
+        "require-dev": {
+            "phpspec/phpspec": "~2.0"
+        },
+        "suggest": {
+            "ext-gd": "*"
+        },
+        "time": "2018-04-03T14:48:57+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Zebra\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Rob Gridley",
+                "email": "me@robgridley.com"
+            }
+        ],
+        "description": "PHP ZPL builder, image conversion and a basic client for network-connected Zebra label printers.",
+        "keywords": [
+            "image",
+            "zebra",
+            "zpl"
+        ]
+    },
+    {
         "name": "sabberworm/php-css-parser",
         "version": "8.1.0",
         "version_normalized": "8.1.0.0",

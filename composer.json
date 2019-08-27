@@ -7,6 +7,7 @@
         "dompdf/dompdf": "^0.8.3",
         "tflanagan/quickbase": "^2.0",
         "mike42/escpos-php": "^2.1",
-        "spatie/browsershot": "^1.9"
+        "spatie/browsershot": "^1.9",
+        "robgridley/zebra": "^2.0"
     }
 }

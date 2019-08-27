@@ -48,7 +48,7 @@ function createHTML($xmlArr) {
 // echo "WORK";
 // die();
 $br = new Browsershot();
-$_POST['rids'] = "546069,546068";
+//$_POST['rids'] = "546069,546068"; //test call without webhook
 $counter = 0;
 $allData = array();
 if(isset($_POST['rids'])){

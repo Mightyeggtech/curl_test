@@ -6,7 +6,7 @@ use Zebra\Zpl\Image;
 use Zebra\Zpl\Builder;
 use Zebra\Zpl\GdDecoder;
 
-define("SERVER_ADDRESS", "http://fairdeal.test"); //contains http ex : https://www.google.com/
+define("SERVER_ADDRESS", "http://192.168.0.147/");
 define("PRINTER_IP", "192.168.0.105"); //local printer ip
 
 function printZPL($imageName){

@@ -10,6 +10,9 @@ define("SERVER_ADDRESS", "http://157.245.103.85/curl_test/home/ss-print/");
 define("PRINTER_IP", "192.168.0.105"); //local printer ip
 
 function printZPL($imageName){
+  echo "<br>";
+  echo "i am here before ";
+  echo "<br>";
   //printing process zebra printer
   $decoder = GdDecoder::fromPath($imageName);
   $image = new Image($decoder);
@@ -17,7 +20,7 @@ function printZPL($imageName){
   $zpl = new Builder();
   $zpl->fo(50, 50)->gf($image)->fs();
   echo "<br>";
-  echo "i am here";
+  echo "i am here after";
   echo "<br>ZPL = ";
   echo $zpl;
   echo "<br><br>";

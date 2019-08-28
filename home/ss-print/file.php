@@ -91,6 +91,7 @@ if(isset($_POST['rids'])){
     $myfile = fopen("htmlfile.html", "w") or die("Unable to open file!");
     fwrite($myfile, $txt);
     fclose($myfile);
+    echo "i wrote file";
     //making images with browsshot
     $link = SERVER_ADDRESS.'/htmlfile.html';
     $imageName = 'image.png';

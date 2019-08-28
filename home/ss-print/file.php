@@ -50,10 +50,12 @@ function createHTML($xmlArr) {
 // echo "WORK";
 // die();
 $br = new Browsershot();
-$_POST['rids'] = "546048"; //test call without webhook
+//$_POST['rids'] = "546048"; //test call without webhook
 $counter = 0;
 $allData = array();
 if(isset($_POST['rids'])){
+  echo "I got Data";
+  echo "<br>";
   $string = $_POST['rids'];
   $explodedData = explode(",",$string);
   $totalRids =  count($explodedData);

@@ -67,6 +67,8 @@ if(isset($_POST['rids'])){
     curl_setopt($cURL, CURLOPT_RETURNTRANSFER, true);
     //curl_setopt($cURL, CURLOPT_HTTPHEADER, array("Accept: application/pdf"));
     $response = curl_exec($cURL);
+    echo $response;
+    die();
     //convert xml string into an object
     $html = "";
     if (curl_getinfo($cURL, CURLINFO_HTTP_CODE) == 200) {

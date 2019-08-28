@@ -6,7 +6,7 @@ use Zebra\Zpl\Image;
 use Zebra\Zpl\Builder;
 use Zebra\Zpl\GdDecoder;
 
-define("SERVER_ADDRESS", "http://fairdeal.test/home/ss-print/");
+define("SERVER_ADDRESS", "https://infinite-dawn-72254.herokuapp.com/home/ss-print/");
 define("PRINTER_IP", "192.168.0.105"); //local printer ip
 
 function printZPL($imageName){

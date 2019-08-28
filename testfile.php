@@ -2,7 +2,7 @@
 
 $_POST['rids'] = "546065"; //test call without webhook
 
-echo "FROM FILE";
+echo "FROM Heroku";
 echo "<br>";
 
 $url = "https://infinite-dawn-72254.herokuapp.com/home/ss-print/file.php";

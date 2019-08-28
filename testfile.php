@@ -1,6 +1,6 @@
 <?php
 
-$_POST['rids'] = "546066"; //test call without webhook
+$_POST['rids'] = "546065"; //test call without webhook
 
 echo "FROM Digital Ocean";
 echo "<br>";

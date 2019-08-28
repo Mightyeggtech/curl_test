@@ -16,6 +16,9 @@ function printZPL($imageName){
 
   $zpl = new Builder();
   $zpl->fo(50, 50)->gf($image)->fs();
+  echo "<br>";
+  echo "i am here";
+  echo "<br>ZPL = ";
   echo $zpl;
   echo "<br><br>";
   // $client = new Client(PRINTER_IP);

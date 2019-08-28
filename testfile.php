@@ -5,7 +5,7 @@ $_POST['rids'] = "546065"; //test call without webhook
 echo "FROM Digital Ocean";
 echo "<br>";
 
-$url = "fairdeal.test/home/ss-print/file.php";
+$url = "http://157.245.103.85/curl_test/home/ss-print/file.php";
 $cURL = curl_init($url);
 curl_setopt($cURL, CURLOPT_POST, true);
 curl_setopt($cURL, CURLOPT_POSTFIELDS, $_POST);

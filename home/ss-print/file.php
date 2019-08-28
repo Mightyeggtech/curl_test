@@ -10,20 +10,13 @@ define("SERVER_ADDRESS", "http://157.245.103.85/curl_test/home/ss-print/");
 define("PRINTER_IP", "192.168.0.105"); //local printer ip
 
 function printZPL($imageName){
-  echo "<br>";
-  echo "i am here before ";
-  echo "<br>";
   //printing process zebra printer
   $decoder = GdDecoder::fromPath($imageName);
   $image = new Image($decoder);
 
   $zpl = new Builder();
   $zpl->fo(50, 50)->gf($image)->fs();
-  echo "<br>";
-  echo "i am here after";
-  echo "<br>ZPL = ";
   echo $zpl;
-  echo "<br><br>";
   // $client = new Client(PRINTER_IP);
   // $client->send($zpl);
   // echo "Printed Successfully-";
@@ -60,8 +53,6 @@ $br = new Browsershot();
 $counter = 0;
 $allData = array();
 if(isset($_POST['rids'])){
-  echo "I got Data";
-  echo "<br>";
   $string = $_POST['rids'];
   $explodedData = explode(",",$string);
   $totalRids =  count($explodedData);
@@ -117,3 +108,5 @@ if(isset($_POST['rids'])){
 else{
   echo "No Data Found";
 }
+
+?>

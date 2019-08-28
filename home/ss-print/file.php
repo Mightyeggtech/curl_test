@@ -68,13 +68,14 @@ if(isset($_POST['rids'])){
       curl_setopt($cURL, CURLOPT_RETURNTRANSFER, true);
       //curl_setopt($cURL, CURLOPT_HTTPHEADER, array("Accept: application/pdf"));
       $response = curl_exec($cURL);
-      echo $response;
     }catch (Exception $e) {
       echo $e->getMessage();
     }
     //convert xml string into an object
     $html = "";
+    echo " i am before 200 ";
     if (curl_getinfo($cURL, CURLINFO_HTTP_CODE) == 200) {
+      echo " i am after 200 ";
         $xml = simplexml_load_string($response);
         //convert into json
         $json  = json_encode($xml);

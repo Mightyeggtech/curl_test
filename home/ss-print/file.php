@@ -1,12 +1,12 @@
 <?php
-require 'vendor/autoload.php';
+require '../../vendor/autoload.php';
 use Spatie\Browsershot\Browsershot;
 use Zebra\Client;
 use Zebra\Zpl\Image;
 use Zebra\Zpl\Builder;
 use Zebra\Zpl\GdDecoder;
 
-define("SERVER_ADDRESS", "http://192.168.0.147/");
+define("SERVER_ADDRESS", "http://fairdeal.test/home/ss-print/");
 define("PRINTER_IP", "192.168.0.105"); //local printer ip
 
 function printZPL($imageName){
@@ -16,8 +16,10 @@ function printZPL($imageName){
 
   $zpl = new Builder();
   $zpl->fo(50, 50)->gf($image)->fs();
-  $client = new Client(PRINTER_IP);
-  $client->send($zpl);
+  echo $zpl;
+  echo "<br><br>";
+  // $client = new Client(PRINTER_IP);
+  // $client->send($zpl);
   // echo "Printed Successfully-";
 }
 
@@ -48,7 +50,7 @@ function createHTML($xmlArr) {
 // echo "WORK";
 // die();
 $br = new Browsershot();
-//$_POST['rids'] = "546069,546068"; //test call without webhook
+//$_POST['rids'] = "546048,546068,546067,546064,546061"; //test call without webhook
 $counter = 0;
 $allData = array();
 if(isset($_POST['rids'])){
@@ -85,22 +87,25 @@ if(isset($_POST['rids'])){
   $txt = "";
   for($i = 0; $i < $allDataCount; $i++){
     //making html file
-    $txt .= $allData[$i];
+    $txt = $allData[$i];
+    //html write
+    $myfile = fopen("htmlfile.html", "w") or die("Unable to open file!");
+    fwrite($myfile, $txt);
+    fclose($myfile);
+    //making images with browsshot
+    $link = SERVER_ADDRESS.'/htmlfile.html';
+    $imageName = 'image.png';
+    try{
+      $br->setUrl($link)->save($imageName);
+    }
+    catch (Exception $e) {
+      echo $e->getMessage();
+    }
+    //zpl print function
+    printZPL($imageName);
   }
-  //echo $txt;
-  $myfile = fopen("htmlfile.html", "w") or die("Unable to open file!");
-  fwrite($myfile, $txt);
-  fclose($myfile);
+}
 
-  //making images with browsshot
-  $link = SERVER_ADDRESS.'/htmlfile.html';
-  $imageName = 'image.png';
-  try{
-    $br->setUrl($link)->save($imageName);
-  }
-  catch (Exception $e) {
-    echo $e->getMessage();
-  }
-  //zpl print function
-  printZPL($imageName);
+else{
+  echo "No Data Found";
 }

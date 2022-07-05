@@ -4,7 +4,7 @@
         "secure-http": false
     },
     "require": {
-        "dompdf/dompdf": "^0.8.3",
+        "dompdf/dompdf": "^2.0.0",
         "tflanagan/quickbase": "^2.0",
         "mike42/escpos-php": "^2.1",
         "spatie/browsershot": "^1.9",
